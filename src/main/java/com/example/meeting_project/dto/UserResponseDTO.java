@@ -11,6 +11,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserResponseDTO { //회원 정보 조회 시 사용(비밀번호는 제외)
     private Long id;
-    private String name;
     private String email;
 }

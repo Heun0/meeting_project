@@ -10,7 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserRequestDTO { //회원가입 요청에 사용
-    private String name;
     private String email;
     private String password;
 }
