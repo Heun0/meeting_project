@@ -12,4 +12,5 @@ import lombok.Setter;
 public class UserResponseDTO { //회원 정보 조회 시 사용(비밀번호는 제외)
     private Long id;
     private String email;
+    private String token; //로그인 응답할때
 }

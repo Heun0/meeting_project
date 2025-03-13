@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface MeetingRepository extends JpaRepository<Meeting,Long> {
@@ -12,5 +13,5 @@ public interface MeetingRepository extends JpaRepository<Meeting,Long> {
     List<Meeting> findByMeetingHost_Id(Long userId);
 
     //미팅 이름으로 미팅 찾기
-    List<Meeting> findByName(String name);
+    Optional<Meeting> findByName(String name);
 }

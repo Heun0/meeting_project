@@ -18,7 +18,7 @@ public class Meeting {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true) //미팅 이름이 겹치지 않도록
     private String name; // 미팅 이름
 
     @Column(nullable = false)
@@ -27,7 +27,7 @@ public class Meeting {
     @Column(name="max_participants",nullable = false)
     private Integer maxParticipants; //미팅 최대 참가자 수
 
-    @Column(name="current_participants",nullable = false)
+    @Column(name="current_participants",nullable=false, columnDefinition = "INT DEFAULT 1")
     private Integer currentParticipants; //미팅 현재 참가자 수
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -39,5 +39,7 @@ public class Meeting {
 
     @OneToMany(mappedBy = "meeting")
     private Set<Schedule> schedules; // 해당 미팅의 스케줄들
+
+
 
 }

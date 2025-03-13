@@ -15,15 +15,17 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody UserRequestDTO userRequestDTO){
-        String message = userService.register(userRequestDTO.getEmail(), userRequestDTO.getPassword());
-        return ResponseEntity.ok(message);
+    public ResponseEntity<UserResponseDTO> register(@RequestBody UserRequestDTO userRequestDTO){
+        UserResponseDTO registeredUser = userService.registerUser(userRequestDTO);
+        //String message = userService.registerUser(userRequestDTO.getEmail(), userRequestDTO.getPassword());
+        return ResponseEntity.ok(registeredUser);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody UserRequestDTO userRequestDTO) {
-        String message = userService.login(userRequestDTO.getEmail(), userRequestDTO.getPassword());
-        return ResponseEntity.ok(message);
+    public ResponseEntity<UserResponseDTO> login(@RequestBody UserRequestDTO userRequestDTO) {
+//        String message = userService.login(userRequestDTO.getEmail(), userRequestDTO.getPassword());
+        UserResponseDTO loginUser = userService.login(userRequestDTO);
+        return ResponseEntity.ok(loginUser);
     }
 
     @PostMapping("/logout")
